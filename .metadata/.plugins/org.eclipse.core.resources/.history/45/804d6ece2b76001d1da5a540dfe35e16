@@ -1,0 +1,5 @@
+package br.edu.itb.academico.actions;
+
+public class AlterarUsuario {
+
+}

@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\npalmeira\InfoPosto\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+907614900.index
+1023141909.index
+1118784195.index
+1052335678.index
+1039990837.index
+3061031211.index
+3541227602.index

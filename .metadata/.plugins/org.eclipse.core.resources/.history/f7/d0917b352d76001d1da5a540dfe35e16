@@ -1,0 +1,39 @@
+package br.edu.itb.academico.actions;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import br.edu.itb.academico.database.ConnectionFactory;
+import br.edu.itb.academico.model.FaleConosco;
+import br.edu.itb.academico.model.Posto;
+import br.edu.itb.academico.model.Usuario;
+
+public class AlterarUsuario implements Action {
+
+		@Override
+		public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		  String idUsuario = request.getParameter("codigo");
+			
+			
+			
+			Connection con = ConnectionFactory.getConnectionSqlServer();
+//			
+			
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM tbLogin WHERE idUsuario =?");
+			ps.setString(1, idUsuario);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()){
+		
+				
+				Usuario u = new Usuario(rs.getString("nome"), rs.getString("email"), rs.getString("senha"));
+				request.setAttribute("usuario", u);
+			}
+		
+			return "/WEB-INF/jsp/CadastroDePosto/AlterarPosto.jsp";
+		}
+
+	}
